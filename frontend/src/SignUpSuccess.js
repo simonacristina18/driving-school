@@ -1,7 +1,6 @@
 import React, {Component, useEffect, useState} from 'react';
-import {Button, ButtonGroup, Card, CardText, CardTitle, Container, FormGroup, Table} from 'reactstrap';
+import {Card, CardText, CardTitle} from 'reactstrap';
 import AppNavbar from './AppNavbar';
-import {Link} from 'react-router-dom';
 import {PDFDownloadLink} from '@react-pdf/renderer';
 import MyDocument from './Document.js'
 import {useLocation} from "react-router-dom";
@@ -26,9 +25,14 @@ const SignUpSuccess = () => {
                         }
                     </PDFDownloadLink>
                 </CardText>
+                {/*<CardText>*/}
+                {/*    <PDFDownloadLink document={<MyReport data={data}/>} fileName="report.pdf">*/}
+                {/*        {({blob, url, loading, error}) =>*/}
+                {/*            loading ? 'Loading document...' : 'Get report'*/}
+                {/*        }*/}
+                {/*    </PDFDownloadLink>*/}
+                {/*</CardText>*/}
             </Card>
-            <FormGroup>
-            </FormGroup>
         </div>
     );
 }

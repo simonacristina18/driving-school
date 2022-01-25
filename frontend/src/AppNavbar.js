@@ -17,7 +17,7 @@ export default class AppNavbar extends Component {
 
     render() {
         return <Navbar color="dark" dark expand="md" style={{justifyContent: 'center'}}>
-            <NavbarBrand tag={Link} to="/">Driving School Register</NavbarBrand>
+            <NavbarBrand tag={Link} to="/">Driving School Registration</NavbarBrand>
         </Navbar>;
     }
 }

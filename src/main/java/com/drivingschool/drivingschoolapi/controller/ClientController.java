@@ -1,5 +1,7 @@
 package com.drivingschool.drivingschoolapi.controller;
 
+import com.drivingschool.drivingschoolapi.domain.CarReport;
+import com.drivingschool.drivingschoolapi.domain.CarStatistics;
 import com.drivingschool.drivingschoolapi.domain.Client;
 import com.drivingschool.drivingschoolapi.repository.ClientRepository;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +35,14 @@ public class ClientController {
     public ResponseEntity createClient(@RequestBody Client client) throws URISyntaxException {
         Client savedClient = clientRepository.save(client);
         return ResponseEntity.created(new URI("/success/" + savedClient.getId())).body(savedClient);
+    }
+
+    @GetMapping("/reports")
+    public ResponseEntity getCarStatistics() {
+        List<CarStatistics> carStatistics = clientRepository.findCarStatistics();
+        Long total = clientRepository.count();
+        CarReport carReport = new CarReport(carStatistics, total);
+        return ResponseEntity.ok(carReport);
     }
 
 //    @PutMapping("/{id}")
